@@ -3,5 +3,5 @@
 Home
 @endsection
 @section('content')
-    questa è la home
+    <a href="{{route('comics.index')}}">admin</a>
 @endsection

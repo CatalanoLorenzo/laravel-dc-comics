@@ -48,10 +48,10 @@ class ComicController extends Controller
             'type' => $request->type,
             'description' => $request->description,
             'sale_date' => $request->sale_date,
-            'price' => $request->price,
+            'price' => '$'.$request->price,
         ];
         Comic::create($dataform);
-        return to_route('admin.comics.index')->with('message','comics add successfully');
+        return to_route('comics.index')->with('message','comics add successfully');
     }
 
     /**

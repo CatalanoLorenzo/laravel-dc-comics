@@ -2,7 +2,11 @@
 @section('content')
 <div class="col">
     <!-- banner se si viene da store -->
-    @if(session('message')) <span class="badge bg-succes">{{$session('message')}}</span> @endif
+    @if (session('message'))
+    <div class="alert alert-success" role="alert">
+        <strong>{{session('message')}}</strong>
+    </div>
+    @endif
     <a class="btn btn-primary" href="{{route('comics.create')}}" role="button">+New Comic</a>
     <div class="table-responsive">
         <table class="table table-striped
