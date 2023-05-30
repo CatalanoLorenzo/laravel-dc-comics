@@ -73,7 +73,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit',compact('comic'));
     }
 
     /**
@@ -85,7 +85,18 @@ class ComicController extends Controller
      */
     public function update(UpdateComicRequest $request, Comic $comic)
     {
-        //
+        $dataform = [
+            #chiave del db 'title'
+            #$request->title, chiave del form (name)
+            'title' => $request->title,
+            'thumb' => $request->thumb,
+            'type' => $request->type,
+            'description' => $request->description,
+            'sale_date' => $request->sale_date,
+            'price' => '$'.$request->price,
+        ];
+        $comic->update($dataform);
+        return to_route('comics.index')->with('message','comics update');
     }
 
     /**
@@ -96,6 +107,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+       $comic->delete();
+       return to_route('comics.index')->with('message','comics is delete');
     }
 }
