@@ -7,7 +7,7 @@
         <strong>{{session('message')}}</strong>
     </div>
     @endif
-    <a class="btn btn-primary" href="{{route('comics.create')}}" role="button">+New Comic</a>
+    <a class="btn btn-primary m-3" href="{{route('comics.create')}}" role="button">+New Comic</a>
     <div class="table-responsive">
         <table class="table table-striped
             table-hover	
@@ -35,7 +35,7 @@
                     <td>{{$comic->price}}</td>
                     <td>{{$comic->sale_date}}</td>
                     <td>{{$comic->type}}</td>
-                    <td>VIEW/EDIT/DELETE</td>
+                    <td><a class="btn btn-primary" href="{{route('comics.show',$comic)}}" role="button">VIEW</a>/EDIT/DELETE</td>
                 </tr>
                 @empty
                 <tr class="table-primary">
