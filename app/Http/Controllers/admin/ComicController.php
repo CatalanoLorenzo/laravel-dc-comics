@@ -18,8 +18,12 @@ class ComicController extends Controller
     public function index()
     {
        # dd(Comic::all());
+       $voices = config('voice_navbar.voices');
+        $about_nav = config('about_nav_menu.about_nav');
+        $footericon = config('footer_icon.foote_icon');
+        $shops = config('shop_menu.shop_menu');
         $comics = Comic::orderByDesc('id')->get();
-       return view('admin.comics.index',compact('comics'));
+       return view('admin.comics.index',compact('comics','voices', 'about_nav', 'footericon', 'shops'));
     }
 
   /**
@@ -29,7 +33,11 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('admin.comics.create');
+        $voices = config('voice_navbar.voices');
+        $about_nav = config('about_nav_menu.about_nav');
+        $footericon = config('footer_icon.foote_icon');
+        $shops = config('shop_menu.shop_menu');
+        return view('admin.comics.create',compact('voices', 'about_nav', 'footericon', 'shops'));
     }
 
     /**
@@ -62,7 +70,11 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('admin.comics.show',compact('comic'));
+        $voices = config('voice_navbar.voices');
+        $about_nav = config('about_nav_menu.about_nav');
+        $footericon = config('footer_icon.foote_icon');
+        $shops = config('shop_menu.shop_menu');
+        return view('admin.comics.show',compact('comic','voices', 'about_nav', 'footericon', 'shops'));
     }
 
     /**
@@ -73,7 +85,11 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view('admin.comics.edit',compact('comic'));
+        $voices = config('voice_navbar.voices');
+        $about_nav = config('about_nav_menu.about_nav');
+        $footericon = config('footer_icon.foote_icon');
+        $shops = config('shop_menu.shop_menu');
+        return view('admin.comics.edit',compact('comic','voices', 'about_nav', 'footericon', 'shops'));
     }
 
     /**
