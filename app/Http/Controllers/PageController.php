@@ -34,7 +34,11 @@ class PageController extends Controller
        return view('home',compact('comics','voices', 'about_nav', 'footericon', 'shops'));
     }
     public function show(Comic $comic)
-    {
-        return view('user.show',compact('comic'));
+    {$voices = config('voice_navbar.voices');
+        $about_nav = config('about_nav_menu.about_nav');
+        $footericon = config('footer_icon.foote_icon');
+        $shops = config('shop_menu.shop_menu');
+        $comics = Comic::orderByDesc('id')->get();
+        return view('user.single_comic' ,compact('comic','voices', 'about_nav', 'footericon', 'shops'));
     }
 }

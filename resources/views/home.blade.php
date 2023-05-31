@@ -5,13 +5,15 @@
     <section class="showcard ">
     <div class="container position-relative">
         <div class="current_series p-2 text-center position-absolute">
-            <h3>CURRENT SERIES</h3>
+            <h3>CURRENT SERIES
+            
+            </h3>
         </div>
         <div class="row row-cols-6 py-5">
             @foreach($comics as $comic)
             <!-- cards -->
             <div class="col p-2">
-                <a href="{{route(show)}}">
+                <a href="{{route('show',$comic)}}">
                     <div class="cards">
                         <div class="  p-0">
                             <div class="cover">
