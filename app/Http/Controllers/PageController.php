@@ -38,7 +38,6 @@ class PageController extends Controller
         $about_nav = config('about_nav_menu.about_nav');
         $footericon = config('footer_icon.foote_icon');
         $shops = config('shop_menu.shop_menu');
-        $comics = Comic::orderByDesc('id')->get();
         return view('user.single_comic' ,compact('comic','voices', 'about_nav', 'footericon', 'shops'));
     }
 }
