@@ -1,8 +1,13 @@
 @extends('layouts.app')
 @section('title','home')
+@section('jumbo')
+<section class="jumbo">
+    <img src="{{Vite::asset('resources/img/jumbotron.jpg')}}" alt="">
+</section>
+@endsection
 @section('content')
-    <a href="{{route('comics.index')}}">admin</a>
-    <section class="showcard ">
+<section class="showcard ">
+        <a href="{{route('comics.index')}}">admin</a>
     <div class="container position-relative">
         <div class="current_series p-2 text-center position-absolute">
             <h3>CURRENT SERIES
@@ -13,6 +18,7 @@
             @foreach($comics as $comic)
             <!-- cards -->
             <div class="col p-2">
+                <form action="{{route('show',$comic)}}" method="get">
                 <a href="{{route('show',$comic)}}">
                     <div class="cards">
                         <div class="  p-0">
@@ -31,7 +37,9 @@
         </div>
         <a name="" id="" class="btn load_more position-absolute rounded-0" href="#" role="button">
             <span class="text-white"><strong>Load More</strong></span>
+
         </a>
+        
     </div>
 </section>
 @endsection

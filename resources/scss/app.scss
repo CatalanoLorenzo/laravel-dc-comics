@@ -85,12 +85,17 @@ main {
     .showcard {
         background-color: $bg-contnent;
         color: white;
+        .img_comic{
+            left: -14%;
+            bottom: 278px;
+            width: 200px;
+        }
         .current_series{
             background-color: $bg-bottomNav ;
-            width: 248px;
+            width: 123%;
             height: 55px;
             top: -5%;
-            left: -1%;
+            left: -23%;
         }
         .cards{
             background-color: $bg-contnent;

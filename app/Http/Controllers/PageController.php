@@ -33,6 +33,14 @@ class PageController extends Controller
         $comics = Comic::orderByDesc('id')->get();
        return view('home',compact('comics','voices', 'about_nav', 'footericon', 'shops'));
     }
+    
+  
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Comic  $comic
+     * @return \Illuminate\Http\Response
+     */
     public function show(Comic $comic)
     {$voices = config('voice_navbar.voices');
         $about_nav = config('about_nav_menu.about_nav');
