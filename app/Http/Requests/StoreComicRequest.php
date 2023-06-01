@@ -23,8 +23,21 @@ class StoreComicRequest extends FormRequest
      */
     public function rules()
     {
+        
+            return [
+                'title' => 'required|max:255|min:5',
+                'description' =>'nullable|max:800',
+                'thumb' =>'nullable|min:8',
+                'price' =>'required|max:255|min:4',
+                'sale_date' =>'nullable|date',
+                'type' =>'nullable|max:255',
+            
+        ];
+    }
+    public function messages()
+    {
         return [
-            //
+            'title.min' => 'low word add more',
         ];
     }
 }

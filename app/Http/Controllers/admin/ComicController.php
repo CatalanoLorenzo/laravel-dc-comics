@@ -48,17 +48,9 @@ class ComicController extends Controller
      */
     public function store(StoreComicRequest $request)
     {
-        $dataform = [
-            #chiave del db 'title'
-            #$request->title, chiave del form (name)
-            'title' => $request->title,
-            'thumb' => $request->thumb,
-            'type' => $request->type,
-            'description' => $request->description,
-            'sale_date' => $request->sale_date,
-            'price' => '$'.$request->price,
-        ];
-        Comic::create($dataform);
+        $val_data_form = $request->validated();
+       
+        Comic::create($val_data_form);
         return to_route('comics.index')->with('message','comics add successfully');
     }
 
@@ -70,6 +62,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
+
         $voices = config('voice_navbar.voices');
         $about_nav = config('about_nav_menu.about_nav');
         $footericon = config('footer_icon.foote_icon');
@@ -101,7 +94,8 @@ class ComicController extends Controller
      */
     public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $dataform = [
+        $val_data_form = $request->validated();
+        /* $dataform = [
             #chiave del db 'title'
             #$request->title, chiave del form (name)
             'title' => $request->title,
@@ -110,8 +104,8 @@ class ComicController extends Controller
             'description' => $request->description,
             'sale_date' => $request->sale_date,
             'price' => '$'.$request->price,
-        ];
-        $comic->update($dataform);
+        ]; */
+        $comic->update($val_data_form);
         return to_route('comics.index')->with('message','comics update');
     }
 
