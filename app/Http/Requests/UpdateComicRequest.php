@@ -32,4 +32,10 @@ class UpdateComicRequest extends FormRequest
             'type' =>'nullable|max:255',
         ];
     }
+    public function messages()
+    {
+        return [
+            'title.min' => 'low word add more',
+        ];
+    }
 }
