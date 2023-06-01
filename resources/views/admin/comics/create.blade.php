@@ -17,8 +17,8 @@
     <!-- input for url img -->
     <div class="mb-3">
       <label for="thumb" class="form-label">Url Image</label>
-      <input type="text" @error ('thumb') is-invalid @enderror value="{{old('thumb')}}
-        class=" form-control" name="thumb" id="thumb" aria-describedby="helpId" placeholder="write here new url image comcis ">
+      <input type="text" @error ('thumb') is-invalid @enderror value="{{old('thumb')}}"
+        class="form-control" name="thumb" id="thumb" aria-describedby="helpId" placeholder="write here new url image comcis ">
       <small id="helpId" class="form-text text-muted"></small>
       @error('thumb')
       <div class="alert alert-danger" role="alert">
